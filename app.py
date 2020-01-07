@@ -1,12 +1,12 @@
 import os
-from flask import Flask
+from flask import Flasik
 from buzz import generator
 
 app = Flask(__name__)
 
 @app.route("/")
 def generate_buzz():
-    page = '<html><body><h1>'
+    page = '<html><body background=\"NaturePatterns08.jpg\"><h1>'
     page += generator.generate_buzz()
     page += '</h1></body></html>'
     return page

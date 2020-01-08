@@ -1,5 +1,5 @@
 import os
-from flask import Flasik
+from flask import Flask
 from buzz import generator
 
 app = Flask(__name__)

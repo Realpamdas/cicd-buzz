@@ -6,10 +6,10 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def generate_buzz():
-    page = render_template('home.html')
-    page += generator.generate_buzz()
-    return page
+def home():
+    #page = render_template('home.html')
+    #page += generator.generate_buzz()
+    return render_template('home.html')
 
 #def generate_buzz():
 #    page = '<html><body background="{{ url(NaturePatterns08.jpg) }}"><h1>'

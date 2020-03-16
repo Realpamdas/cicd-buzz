@@ -1,22 +1,17 @@
-import os
-from flask import Flask
-from buzz import generator
+from flask import Flask, request
 
 app = Flask(__name__)
 
 
 @app.route("/")
-#def home():
-    #page = render_template('home.html')
-    #page += generator.generate_buzz()
-#    return render_template('home.html')
+def hello():
+    return '<form action="/echo" method="GET"><input name="text"><input type="submit" value="Echo"></form>'
 
-def generate_buzz():
-    page = '<html><body background="{{ url(NaturePatterns08.jpg) }}"><h1>'
-    page += generator.generate_buzz()
-    page += '</h1></body></html>'
-    return page
+
+@app.route("/echo")
+def echo():
+    return "You said: " + request.args.get('text', '')
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)))
+    app.run()
